@@ -54,7 +54,7 @@ const myQuestions = [
 	}),
 	(question6 = {
 		text: 'What substance is dragon glass mande of?',
-		optionA: 'Dragons scales',
+		optionA: 'Dragons Scales',
 		optionB: 'Special metal smelted by the children of the forest',
 		optionC: 'Obsidian',
 		optionD: 'Onyx',
@@ -72,7 +72,7 @@ const myQuestions = [
 		text:
 			'What translated term do Dothraki Bloodriders use to refer to each other?',
 		optionA: 'Son of my Khal',
-		optionB: 'Blood of my blood',
+		optionB: 'Blood of my Blood',
 		optionC: 'King Hunter',
 		optionD: 'Nomad',
 		correct: 1,
