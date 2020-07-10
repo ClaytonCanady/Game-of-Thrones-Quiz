@@ -25,7 +25,7 @@ Have you ever wanted to test how deep your knowledge of the series really is? If
 - 15 questions
 - display answer to all wrongly answered questions at the end
 
-## Gold
+### Gold
 - share with friends via facebook
 - compare with friends scores
 - 25 questions
