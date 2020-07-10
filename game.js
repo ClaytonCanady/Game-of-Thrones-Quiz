@@ -21,7 +21,7 @@ const myQuestions = [
 		correct: 2,
 	}),
 	(question2 = {
-		text: "What is Arrya's swords name?",
+		text: "What is Arya's swords name?",
 		optionA: 'Needle',
 		optionB: 'Poker',
 		optionC: 'Stabby',
@@ -91,7 +91,7 @@ const myQuestions = [
 		optionB: 'Jon Snow',
 		optionC: 'The Night King',
 		optionD: 'Ramsay Bolton',
-		correct: 3,
+		correct: 0,
 	}),
 ];
 currentQuestion.innerText = myQuestions[questionNumber].text;
@@ -103,9 +103,10 @@ options[3].innerText = myQuestions[questionNumber].optionD;
 function answer(event) {
 	if (this.mark == myQuestions[questionNumber].correct) {
 		scoreCount++;
-		questionNumber++;
+        questionNumber++;
+        console.log(scoreCount);
 		if (questionNumber >= myQuestions.length) {
-			return scoreCount && displayResults();
+			return displayResults();
 		}
 		currentQuestion.innerText = myQuestions[questionNumber].text;
 		options[0].innerText = myQuestions[questionNumber].optionA;
@@ -115,7 +116,7 @@ function answer(event) {
 	} else if (this.mark != myQuestions[questionNumber].correct) {
 		questionNumber++;
 		if (questionNumber >= myQuestions.length) {
-			return scoreCount && displayResults();
+			return displayResults();
 		}
 		currentQuestion.innerText = myQuestions[questionNumber].text;
 		options[0].innerText = myQuestions[questionNumber].optionA;
@@ -125,13 +126,11 @@ function answer(event) {
 	}
 }
 
-
-
 function displayResults() {
 	const responses = [
 		`${scoreCount}/${myQuestions.length} You Know Nothing John Snow`,
 		`${scoreCount}/${myQuestions.length} A book is to the mind as a whetstone is to a sword, you should pick one up.`,
-		`${scoreCount}/${myQuestions.length} Not too shabby Little Finger would be proud`,
+		`${scoreCount}/${myQuestions.length} Not too shabby, Little Finger would be proud`,
 		`${scoreCount}/${myQuestions.length} Great Job! You're as quick as Tyrion himself!`,
 	];
 	if (scoreCount / myQuestions.length <= 0.25) {
@@ -150,5 +149,19 @@ function displayResults() {
 		results.innerText = responses[3];
 	}
 	results.classList.remove('hidden');
+	resetButton.classList.remove('hidden');
 }
-console.log(5 / 10);
+const resetButton = document.querySelector('.reset-button');
+resetButton.addEventListener('click', reset);
+
+function reset() {
+	questionNumber = 0;
+	scoreCount = 0;
+	results.classList.add('hidden');
+    resetButton.classList.add('hidden');
+    currentQuestion.innerText = myQuestions[questionNumber].text;
+		options[0].innerText = myQuestions[questionNumber].optionA;
+		options[1].innerText = myQuestions[questionNumber].optionB;
+		options[2].innerText = myQuestions[questionNumber].optionC;
+		options[3].innerText = myQuestions[questionNumber].optionD;
+}

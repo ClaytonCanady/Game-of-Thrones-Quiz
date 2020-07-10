@@ -11,12 +11,21 @@ button {
     color: white;
     align-items: center;
     border-radius: 20px;
-  height: 25vh;
-  width: 25vh;
+  	height: 25vh;
+  	width: 25vh;
 	font-size: 3vh;
 	margin: auto;
-	
+	transition-duration: 0.4s;
+	margin: 5px;
 }
+button:hover {
+	background-color: transparent;
+}
+.reset-button {
+	height: fit-content;
+	width: fit-content;
+}
+
 .options-area {
 	display: grid;
 	grid-template-rows: repeat(2, auto);
