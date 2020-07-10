@@ -1,5 +1,6 @@
 const options = document.querySelectorAll('.option');
 const currentQuestion = document.querySelector('.text-here');
+const results = document.querySelector('.results')
 for (let i = 0; i < options.length; i++) {
 	options[i].mark = i;
 	options[i].addEventListener('click', answer);
@@ -101,11 +102,10 @@ options[3].innerText = myQuestions[questionNumber].optionD;
 
 function answer(event) {
 	if (this.mark == myQuestions[questionNumber].correct) {
-		console.log('correct');
 		scoreCount++;
 		questionNumber++;
 		if (questionNumber >= myQuestions.length) {
-			return console.log('end of game');
+			return displayResults()
 		}
 		currentQuestion.innerText = myQuestions[questionNumber].text;
 		options[0].innerText = myQuestions[questionNumber].optionA;
@@ -113,10 +113,9 @@ function answer(event) {
 		options[2].innerText = myQuestions[questionNumber].optionC;
 		options[3].innerText = myQuestions[questionNumber].optionD;
 	} else if (this.mark != myQuestions[questionNumber].correct) {
-		console.log('incorrect');
 		questionNumber++;
 		if (questionNumber >= myQuestions.length) {
-			return console.log('end of game');
+			return displayResults();
 		}
 		currentQuestion.innerText = myQuestions[questionNumber].text;
 		options[0].innerText = myQuestions[questionNumber].optionA;
@@ -124,4 +123,11 @@ function answer(event) {
 		options[2].innerText = myQuestions[questionNumber].optionC;
 		options[3].innerText = myQuestions[questionNumber].optionD;
 	}
+}
+
+
+
+function displayResults() {
+    results.innerText = `You correctly answered ${scoreCount}/${myQuestions.length} questions!!!`;
+    results.classList.remove('hidden')
 }
