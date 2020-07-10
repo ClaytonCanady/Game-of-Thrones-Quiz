@@ -1,6 +1,6 @@
 const options = document.querySelectorAll('.option');
 const currentQuestion = document.querySelector('.text-here');
-const results = document.querySelector('.results')
+const results = document.querySelector('.results');
 for (let i = 0; i < options.length; i++) {
 	options[i].mark = i;
 	options[i].addEventListener('click', answer);
@@ -57,7 +57,7 @@ const myQuestions = [
 		optionA: 'Dragons scales',
 		optionB: 'Special metal smelted by the children of the forest',
 		optionC: 'Obsidian',
-        optionD: 'Onyx',
+		optionD: 'Onyx',
 		correct: 2,
 	}),
 	(question7 = {
@@ -105,7 +105,7 @@ function answer(event) {
 		scoreCount++;
 		questionNumber++;
 		if (questionNumber >= myQuestions.length) {
-			return displayResults()
+			return scoreCount && displayResults();
 		}
 		currentQuestion.innerText = myQuestions[questionNumber].text;
 		options[0].innerText = myQuestions[questionNumber].optionA;
@@ -115,7 +115,7 @@ function answer(event) {
 	} else if (this.mark != myQuestions[questionNumber].correct) {
 		questionNumber++;
 		if (questionNumber >= myQuestions.length) {
-			return displayResults();
+			return scoreCount && displayResults();
 		}
 		currentQuestion.innerText = myQuestions[questionNumber].text;
 		options[0].innerText = myQuestions[questionNumber].optionA;
@@ -128,6 +128,27 @@ function answer(event) {
 
 
 function displayResults() {
-    results.innerText = `You correctly answered ${scoreCount}/${myQuestions.length} questions!!!`;
-    results.classList.remove('hidden')
+	const responses = [
+		`${scoreCount}/${myQuestions.length} You Know Nothing John Snow`,
+		`${scoreCount}/${myQuestions.length} A book is to the mind as a whetstone is to a sword, you should pick one up.`,
+		`${scoreCount}/${myQuestions.length} Not too shabby Little Finger would be proud`,
+		`${scoreCount}/${myQuestions.length} Great Job! You're as quick as Tyrion himself!`,
+	];
+	if (scoreCount / myQuestions.length <= 0.25) {
+		results.innerText = responses[0];
+	} else if (
+		scoreCount / myQuestions.length > 0.25 &&
+		scoreCount / myQuestions.length <= 0.5
+	) {
+		results.innerText = responses[1];
+	} else if (
+		scoreCount / myQuestions.length > 0.5 &&
+		scoreCount / myQuestions.length <= 0.75
+	) {
+		results.innerText = responses[2];
+	} else if (scoreCount / myQuestions.length > 0.75) {
+		results.innerText = responses[3];
+	}
+	results.classList.remove('hidden');
 }
+console.log(5 / 10);
