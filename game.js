@@ -30,3 +30,20 @@ function answer(event) {
         console.log(`next question is # ${question}`);
 }
 }
+
+
+
+
+        // you're gonna need this alot if you don't find a better way
+                    // objects?
+
+// else if (question === 2 && this.mark === 0) {
+//         console.log('num 2 correct');
+//         scoreCount++
+//         question++
+//         console.log(`next question is # ${question}`);
+//     } else if (question === 2 && this.mark !== 0) {
+//         console.log('num 2 wrong');
+//         question++
+//         console.log(`next question is # ${question}`);
+// }
