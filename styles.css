@@ -11,10 +11,11 @@ button {
     color: white;
     align-items: center;
     border-radius: 20px;
-    min-height: 20vh;
-	min-width: 20vh;
+  height: 25vh;
+  width: 25vh;
 	font-size: 3vh;
 	margin: auto;
+	
 }
 .options-area {
 	display: grid;
@@ -22,4 +23,8 @@ button {
 	grid-template-columns: repeat(2, auto);
     
     justify-content: center;
+}
+
+.hidden {
+	display: none;
 }
