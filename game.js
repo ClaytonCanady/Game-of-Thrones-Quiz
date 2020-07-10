@@ -13,7 +13,7 @@ let scoreCount = 0;
 
 const myQuestions = [
 	(question1 = {
-		text: "what is Jon's dire-wolf's name?",
+		text: "What is Jon's dire-wolf's name?",
 		optionA: 'Simba',
 		optionB: 'Lady',
 		optionC: 'Ghost',
@@ -21,7 +21,7 @@ const myQuestions = [
 		correct: 2,
 	}),
 	(question2 = {
-		text: "what is Arrya's swords name?",
+		text: "What is Arrya's swords name?",
 		optionA: 'Needle',
 		optionB: 'Poker',
 		optionC: 'Stabby',
@@ -53,15 +53,15 @@ const myQuestions = [
 		correct: 0,
 	}),
 	(question6 = {
-		text: 'what substance is dragon glass mande of?',
-		optionA: 'dragons scales',
-		optionB: 'special metal smelted by the children of the forest',
-		optionC: 'obsidian',
-		optionD: 'onyx',
+		text: 'What substance is dragon glass mande of?',
+		optionA: 'Dragons scales',
+		optionB: 'Special metal smelted by the children of the forest',
+		optionC: 'Obsidian',
+        optionD: 'Onyx',
 		correct: 2,
 	}),
 	(question7 = {
-		text: 'what are the official words of house Lannister?',
+		text: 'What are the official words of house Lannister?',
 		optionA: 'Family First.',
 		optionB: 'A Lannister always pays his debts.',
 		optionC: 'Always Prepared',
@@ -70,7 +70,7 @@ const myQuestions = [
 	}),
 	(question8 = {
 		text:
-			'what translated term do Dothraki Bloodriders use to refer to each other?',
+			'What translated term do Dothraki Bloodriders use to refer to each other?',
 		optionA: 'Son of my Khal',
 		optionB: 'Blood of my blood',
 		optionC: 'King Hunter',
