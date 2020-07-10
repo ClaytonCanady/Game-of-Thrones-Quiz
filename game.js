@@ -1,49 +1,60 @@
 const options = document.querySelectorAll('.option');
-
+const currentQuestion = document.querySelector('.text-here');
 for (let i = 0; i < options.length; i++) {
 	options[i].mark = i;
 	options[i].addEventListener('click', answer);
 }
 
-let question = 1;
+let questionNumber = 0;
 let scoreCount = 0;
 
+const myQuestions = [
+	(question1 = {
+		text: "what is Jon's wolf's name",
+		optionA: 'Simba',
+		optionB: 'Lady',
+		optionC: 'Ghost',
+		optionD: 'Frost',
+		correct: 2,
+	}),
+	(question2 = {
+		text: "what is Arrya's swords name",
+		optionA: 'needle',
+		optionB: 'poker',
+		optionC: 'stabby',
+		optionD: 'ned',
+		correct: 0,
+	}),
+];
+currentQuestion.innerText = myQuestions[questionNumber].text;
+options[0].innerText = myQuestions[questionNumber].optionA;
+options[1].innerText = myQuestions[questionNumber].optionB;
+options[2].innerText = myQuestions[questionNumber].optionC;
+options[3].innerText = myQuestions[questionNumber].optionD;
+
 function answer(event) {
-	if (question === 1 && this.mark === 2) {
-		console.log('it works');
+	if (this.mark == myQuestions[questionNumber].correct) {
+		console.log('correct');
 		scoreCount++;
-		console.log(scoreCount);
-        question++;
-        console.log(`next question is # ${question}`);
-	} else if (question === 1 && this.mark != 2) {
-		console.log('wrong');
-        question++;
-        console.log(`next question is # ${question}`);
-    } else if (question === 2 && this.mark === 0) {
-        console.log('num 2 correct');
-        scoreCount++
-        question++
-        console.log(`next question is # ${question}`);
-    } else if (question === 2 && this.mark !== 0) {
-        console.log('num 2 wrong');
-        question++
-        console.log(`next question is # ${question}`);
+		questionNumber++;
+		if (questionNumber >= myQuestions.length) {
+			return console.log('end of game');
+		}
+		currentQuestion.innerText = myQuestions[questionNumber].text;
+		options[0].innerText = myQuestions[questionNumber].optionA;
+		options[1].innerText = myQuestions[questionNumber].optionB;
+		options[2].innerText = myQuestions[questionNumber].optionC;
+		options[3].innerText = myQuestions[questionNumber].optionD;
+	} else if (this.mark != myQuestions[questionNumber].correct) {
+		console.log('incorrect');
+		questionNumber++;
+		if (questionNumber >= myQuestions.length) {
+			return console.log('end of game');
+		}
+		currentQuestion.innerText = myQuestions[questionNumber].text;
+		options[0].innerText = myQuestions[questionNumber].optionA;
+		options[1].innerText = myQuestions[questionNumber].optionB;
+		options[2].innerText = myQuestions[questionNumber].optionC;
+		options[3].innerText = myQuestions[questionNumber].optionD;
+	}
 }
-}
-
-//test
-
-
-        // you're gonna need this alot if you don't find a better way
-                    // objects?
-
-// else if (question === 2 && this.mark === 0) {
-//         console.log('num 2 correct');
-//         scoreCount++
-//         question++
-//         console.log(`next question is # ${question}`);
-//     } else if (question === 2 && this.mark !== 0) {
-//         console.log('num 2 wrong');
-//         question++
-//         console.log(`next question is # ${question}`);
-// }

@@ -12,7 +12,9 @@ button {
     align-items: center;
     border-radius: 20px;
     min-height: 20vh;
-    min-width: 20vh;
+	min-width: 20vh;
+	font-size: 3vh;
+	margin: auto;
 }
 .options-area {
 	display: grid;
