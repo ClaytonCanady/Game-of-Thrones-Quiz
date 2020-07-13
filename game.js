@@ -149,6 +149,11 @@ function displayResults() {
 	}
 	results.classList.remove('hidden');
 	resetButton.classList.remove('hidden');
+	currentQuestion.classList.add('hidden')
+	options[0].classList.add('hidden');
+	options[1].classList.add('hidden');
+	options[2].classList.add('hidden');
+	options[3].classList.add('hidden');
 }
 const resetButton = document.querySelector('.reset-button');
 resetButton.addEventListener('click', reset);
@@ -158,9 +163,14 @@ function reset() {
 	scoreCount = 0;
 	results.classList.add('hidden');
 	resetButton.classList.add('hidden');
+	currentQuestion.classList.remove('hidden');
 	currentQuestion.innerText = myQuestions[questionNumber].text;
 	options[0].innerText = myQuestions[questionNumber].optionA;
 	options[1].innerText = myQuestions[questionNumber].optionB;
 	options[2].innerText = myQuestions[questionNumber].optionC;
 	options[3].innerText = myQuestions[questionNumber].optionD;
+	options[0].classList.remove('hidden');
+	options[1].classList.remove('hidden');
+	options[2].classList.remove('hidden');
+	options[3].classList.remove('hidden');
 }

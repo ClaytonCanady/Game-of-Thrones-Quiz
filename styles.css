@@ -51,7 +51,10 @@ button:hover {
 a {
 	color: white;
 }
-
+.start-screen {
+margin-left: 5vw;
+margin-right: 5vw;
+}
 .start-screen-img {
 	height: 25vh;
 }
