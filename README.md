@@ -13,7 +13,7 @@ This repo is designed to be a quiz game based on The Game of Thrones series.
 - currently 10 questions, more to come
 - 4 descriptive quotes from the show that appear based upon the percentage of correct answers
 
-## technologies used
+## Technologies used
 
 - HTML
 - CSS
