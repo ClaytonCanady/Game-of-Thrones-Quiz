@@ -103,8 +103,7 @@ options[3].innerText = myQuestions[questionNumber].optionD;
 function answer(event) {
 	if (this.mark == myQuestions[questionNumber].correct) {
 		scoreCount++;
-        questionNumber++;
-        console.log(scoreCount);
+		questionNumber++;
 		if (questionNumber >= myQuestions.length) {
 			return displayResults();
 		}
@@ -158,10 +157,10 @@ function reset() {
 	questionNumber = 0;
 	scoreCount = 0;
 	results.classList.add('hidden');
-    resetButton.classList.add('hidden');
-    currentQuestion.innerText = myQuestions[questionNumber].text;
-		options[0].innerText = myQuestions[questionNumber].optionA;
-		options[1].innerText = myQuestions[questionNumber].optionB;
-		options[2].innerText = myQuestions[questionNumber].optionC;
-		options[3].innerText = myQuestions[questionNumber].optionD;
+	resetButton.classList.add('hidden');
+	currentQuestion.innerText = myQuestions[questionNumber].text;
+	options[0].innerText = myQuestions[questionNumber].optionA;
+	options[1].innerText = myQuestions[questionNumber].optionB;
+	options[2].innerText = myQuestions[questionNumber].optionC;
+	options[3].innerText = myQuestions[questionNumber].optionD;
 }

@@ -7,15 +7,20 @@ body {
 	font-family: 'Merriweather', serif;
 }
 
+img{
+	height: 12vh;
+}
+
+
 button {
 	background-color: cadetblue;
-    color: rgb(255, 254, 254);
-    align-items: center;
+	color: rgb(255, 254, 254);
+	align-items: center;
 	border-radius: 35%;
 	border-style: double;
 	border-color: rgb(179, 179, 41);
-  	height: 25vh;
-  	width: 25vh;
+	height: 25vh;
+	width: 25vh;
 	font-size: 3vh;
 	margin: auto;
 	transition-duration: 0.4s;
@@ -34,8 +39,8 @@ button:hover {
 	display: grid;
 	grid-template-rows: repeat(2, auto);
 	grid-template-columns: repeat(2, auto);
-    
-    justify-content: center;
+
+	justify-content: center;
 }
 
 .hidden {
