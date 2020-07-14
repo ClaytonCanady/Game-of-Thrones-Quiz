@@ -2,6 +2,14 @@ const options = document.querySelectorAll('.option');
 const currentQuestion = document.querySelector('.text-here');
 const results = document.querySelector('.results');
 const incorrect = document.querySelector('.show-incorrect');
+const startScreen = document.querySelector('.start-screen');
+const gameScreen = document.querySelector('.game-area');
+const startGame = document.querySelector('.start-game');
+startGame.addEventListener('click', go);
+function go() {
+	startScreen.classList.add('hidden');
+	gameScreen.classList.remove('hidden');
+}
 //array where correct answer will be stored to display later
 let missed = [];
 //adds onclick event to all 4 option buttons
