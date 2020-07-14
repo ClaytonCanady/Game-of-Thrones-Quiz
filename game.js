@@ -8,7 +8,6 @@ const startGame = document.querySelector('.start-game');
 startGame.addEventListener('click', go);
 const finishedScreen = document.querySelector('.finished-screen');
 const highScore = document.querySelector('.record-score');
-// localStorage.removeItem('highScore');
 var bestScore = localStorage.getItem('highScore') || 0;
 highScore.innerText = `Your current high score is ${bestScore}`;
 

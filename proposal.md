@@ -20,7 +20,7 @@ Have you ever wanted to test how deep your knowledge of the series really is? If
 ### Silver
 
 - ~~display a quote that is comparable to the users correct amount of answers EX: 'you know nothing John Snow'~~
-- high score
+- ~~high score~~
 - 15 questions
 - ~~display answer to all wrongly answered questions at the end~~
 
