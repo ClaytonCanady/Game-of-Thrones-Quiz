@@ -191,7 +191,6 @@ function showMissed() {
 function reset() {
 	questionNumber = 0;
 	scoreCount = 0;
-	missed = [];
 	incorrect.classList.add('hidden');
 	myUl.classList.add('hidden');
 	results.classList.add('hidden');
@@ -206,4 +205,11 @@ function reset() {
 	options[1].classList.remove('hidden');
 	options[2].classList.remove('hidden');
 	options[3].classList.remove('hidden');
+	// https://www.sitepoint.com/community/t/dom-remove-all-li-from-ul/3145/2 user: Kravvitz
+	for (let i = 0; i < missed.length; i++) {
+		myUl.removeChild(myUl.firstChild);
+	}
+	while (missed.length > 0) {
+		missed.pop();
+	}
 }
