@@ -1,11 +1,13 @@
 const options = document.querySelectorAll('.option');
 const currentQuestion = document.querySelector('.text-here');
 const results = document.querySelector('.results');
+const incorrect = document.querySelector('.show-incorrect')
+let missed = [];
 for (let i = 0; i < options.length; i++) {
 	options[i].mark = i;
 	options[i].addEventListener('click', answer);
 }
-
+incorrect.addEventListener('click', showMissed)
 let questionNumber = 0;
 let scoreCount = 0;
 
@@ -19,6 +21,7 @@ const myQuestions = [
 		optionC: 'Ghost',
 		optionD: 'Frost',
 		correct: 2,
+		correction: "Ghost is Jon's dire-wolf.",
 	}),
 	(question2 = {
 		text: "What is the name Arya's sword?",
@@ -27,6 +30,7 @@ const myQuestions = [
 		optionC: 'Stabby',
 		optionD: 'Ned',
 		correct: 0,
+		correction: "Needle is Arya's sword.",
 	}),
 	(question3 = {
 		text: 'What creature is the symbol for house Baratheon?',
@@ -35,6 +39,7 @@ const myQuestions = [
 		optionC: 'Crown',
 		optionD: 'Stag',
 		correct: 3,
+		correction: 'House Baratheon has a Stag as its symbol.',
 	}),
 	(question4 = {
 		text: 'Who turned Theon Greyjoy into Reek?',
@@ -43,6 +48,7 @@ const myQuestions = [
 		optionC: 'Walder Frey',
 		optionD: 'Harrion Karstark',
 		correct: 1,
+		correction: 'Ramsey Bolton turned Theon into Reek.',
 	}),
 	(question5 = {
 		text: 'Who is the head of House Tarly?',
@@ -51,6 +57,7 @@ const myQuestions = [
 		optionC: 'Samwell',
 		optionD: 'Robert',
 		correct: 0,
+		correction: 'Randyll Tarly is the head of his house.',
 	}),
 	(question6 = {
 		text: 'What substance is dragon glass mande of?',
@@ -59,6 +66,7 @@ const myQuestions = [
 		optionC: 'Obsidian',
 		optionD: 'Onyx',
 		correct: 2,
+		correction: 'Dragon glass is made form obsidian.',
 	}),
 	(question7 = {
 		text: 'What are the official words of house Lannister?',
@@ -67,6 +75,7 @@ const myQuestions = [
 		optionC: 'Always Prepared!',
 		optionD: 'Hear me roar!',
 		correct: 3,
+		correction: 'Hear me roar are the words of house Lannister.',
 	}),
 	(question8 = {
 		text:
@@ -76,6 +85,7 @@ const myQuestions = [
 		optionC: 'King Hunter',
 		optionD: 'Nomad',
 		correct: 1,
+		correction: 'Blood riders call each other Blood of My Blood.',
 	}),
 	(question9 = {
 		text: "What is the name of Ned Stark's sword",
@@ -84,6 +94,7 @@ const myQuestions = [
 		optionC: 'Honor',
 		optionD: 'Ice',
 		correct: 3,
+		correction: "Ned Starks's sword is named Ice.",
 	}),
 	(question10 = {
 		text: "Who cut off Jaime Lannister's hand",
@@ -92,6 +103,7 @@ const myQuestions = [
 		optionC: 'The Night King',
 		optionD: 'Ramsay Bolton',
 		correct: 0,
+		correction: "Locke cut off Jaime Lannister's Hand.",
 	}),
 ];
 currentQuestion.innerText = myQuestions[questionNumber].text;
@@ -113,6 +125,7 @@ function answer(event) {
 		options[2].innerText = myQuestions[questionNumber].optionC;
 		options[3].innerText = myQuestions[questionNumber].optionD;
 	} else if (this.mark != myQuestions[questionNumber].correct) {
+		missed.push(myQuestions[questionNumber].correction);
 		questionNumber++;
 		if (questionNumber >= myQuestions.length) {
 			return displayResults();
@@ -147,9 +160,10 @@ function displayResults() {
 	} else if (scoreCount / myQuestions.length > 0.75) {
 		results.innerText = responses[3];
 	}
+	incorrect.classList.remove('hidden')
 	results.classList.remove('hidden');
 	resetButton.classList.remove('hidden');
-	currentQuestion.classList.add('hidden')
+	currentQuestion.classList.add('hidden');
 	options[0].classList.add('hidden');
 	options[1].classList.add('hidden');
 	options[2].classList.add('hidden');
@@ -157,10 +171,23 @@ function displayResults() {
 }
 const resetButton = document.querySelector('.reset-button');
 resetButton.addEventListener('click', reset);
+const myUl = document.querySelector('.correct-answers')
+function showMissed() {
+	for (let i = 0; i < missed.length; i++) {
+		var newLi = document.createElement('li');
+		var text = document.createTextNode(missed[i]);
+		newLi.appendChild(text)
+		myUl.appendChild(newLi)
+	}
+	myUl.classList.remove('hidden')
 
+}
 function reset() {
 	questionNumber = 0;
 	scoreCount = 0;
+	missed = []
+	incorrect.classList.add('hidden');
+	myUl.classList.add('hidden')
 	results.classList.add('hidden');
 	resetButton.classList.add('hidden');
 	currentQuestion.classList.remove('hidden');

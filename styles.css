@@ -11,7 +11,10 @@ body {
 img{
 	height: 12vh;
 }
-
+ul {
+	list-style: none;
+	display: inline;
+}
 
 button {
 	background-color: cadetblue;
@@ -28,8 +31,14 @@ button {
 }
 button:hover {
 	background-color: transparent;
+	
 }
 .reset-button {
+	height: fit-content;
+	width: fit-content;
+	border-radius: 0%;
+}
+.correct-answers {
 	height: fit-content;
 	width: fit-content;
 	border-radius: 0%;
