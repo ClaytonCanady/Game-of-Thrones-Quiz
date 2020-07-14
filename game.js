@@ -1,13 +1,16 @@
 const options = document.querySelectorAll('.option');
 const currentQuestion = document.querySelector('.text-here');
 const results = document.querySelector('.results');
-const incorrect = document.querySelector('.show-incorrect')
+const incorrect = document.querySelector('.show-incorrect');
+//array where correct answer will be stored to display later
 let missed = [];
+//adds onclick event to all 4 option buttons
 for (let i = 0; i < options.length; i++) {
 	options[i].mark = i;
 	options[i].addEventListener('click', answer);
 }
-incorrect.addEventListener('click', showMissed)
+//button to show missed answers
+incorrect.addEventListener('click', showMissed);
 let questionNumber = 0;
 let scoreCount = 0;
 
@@ -112,6 +115,7 @@ options[1].innerText = myQuestions[questionNumber].optionB;
 options[2].innerText = myQuestions[questionNumber].optionC;
 options[3].innerText = myQuestions[questionNumber].optionD;
 
+//handles both correct and incorrect options
 function answer(event) {
 	if (this.mark == myQuestions[questionNumber].correct) {
 		scoreCount++;
@@ -137,7 +141,7 @@ function answer(event) {
 		options[3].innerText = myQuestions[questionNumber].optionD;
 	}
 }
-
+//shows results of quiz with option to reset or display correct answers
 function displayResults() {
 	const responses = [
 		`${scoreCount}/${myQuestions.length} You Know Nothing John Snow`,
@@ -160,7 +164,7 @@ function displayResults() {
 	} else if (scoreCount / myQuestions.length > 0.75) {
 		results.innerText = responses[3];
 	}
-	incorrect.classList.remove('hidden')
+	incorrect.classList.remove('hidden');
 	results.classList.remove('hidden');
 	resetButton.classList.remove('hidden');
 	currentQuestion.classList.add('hidden');
@@ -169,25 +173,27 @@ function displayResults() {
 	options[2].classList.add('hidden');
 	options[3].classList.add('hidden');
 }
+
 const resetButton = document.querySelector('.reset-button');
 resetButton.addEventListener('click', reset);
-const myUl = document.querySelector('.correct-answers')
+const myUl = document.querySelector('.correct-answers');
+// places correct answers to missed questions into a ul
 function showMissed() {
 	for (let i = 0; i < missed.length; i++) {
 		var newLi = document.createElement('li');
 		var text = document.createTextNode(missed[i]);
-		newLi.appendChild(text)
-		myUl.appendChild(newLi)
+		newLi.appendChild(text);
+		myUl.appendChild(newLi);
 	}
-	myUl.classList.remove('hidden')
-
+	myUl.classList.remove('hidden');
 }
+// resets to beginning of game
 function reset() {
 	questionNumber = 0;
 	scoreCount = 0;
-	missed = []
+	missed = [];
 	incorrect.classList.add('hidden');
-	myUl.classList.add('hidden')
+	myUl.classList.add('hidden');
 	results.classList.add('hidden');
 	resetButton.classList.add('hidden');
 	currentQuestion.classList.remove('hidden');
