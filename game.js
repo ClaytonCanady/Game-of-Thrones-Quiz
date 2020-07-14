@@ -6,6 +6,12 @@ const startScreen = document.querySelector('.start-screen');
 const gameScreen = document.querySelector('.game-area');
 const startGame = document.querySelector('.start-game');
 startGame.addEventListener('click', go);
+const finishedScreen = document.querySelector('.finished-screen');
+const highScore = document.querySelector('.record-score');
+// localStorage.removeItem('highScore');
+var bestScore = localStorage.getItem('highScore') || 0;
+highScore.innerText = `Your current high score is ${bestScore}`;
+
 function go() {
 	startScreen.classList.add('hidden');
 	gameScreen.classList.remove('hidden');
@@ -151,6 +157,12 @@ function answer(event) {
 }
 //shows results of quiz with option to reset or display correct answers
 function displayResults() {
+	if (scoreCount > bestScore) {
+		localStorage.setItem('highScore', scoreCount);
+		bestScore = scoreCount;
+		highScore.innerText = `Your current high score is ${bestScore}`;
+	}
+
 	const responses = [
 		`${scoreCount}/${myQuestions.length} You Know Nothing John Snow`,
 		`${scoreCount}/${myQuestions.length} A book is to the mind as a whetstone is to a sword, you should pick one up.`,
@@ -172,6 +184,7 @@ function displayResults() {
 	} else if (scoreCount / myQuestions.length > 0.75) {
 		results.innerText = responses[3];
 	}
+	finishedScreen.classList.remove('hidden');
 	incorrect.classList.remove('hidden');
 	results.classList.remove('hidden');
 	resetButton.classList.remove('hidden');
@@ -199,6 +212,7 @@ function showMissed() {
 function reset() {
 	questionNumber = 0;
 	scoreCount = 0;
+	finishedScreen.classList.add('hidden');
 	incorrect.classList.add('hidden');
 	myUl.classList.add('hidden');
 	results.classList.add('hidden');
@@ -214,7 +228,7 @@ function reset() {
 	options[2].classList.remove('hidden');
 	options[3].classList.remove('hidden');
 	// https://www.sitepoint.com/community/t/dom-remove-all-li-from-ul/3145/2 user: Kravvitz
-	for (let i = 0; i < missed.length; i++) {
+	for (let i = 0; i <= missed.length; i++) {
 		myUl.removeChild(myUl.firstChild);
 	}
 	while (missed.length > 0) {
