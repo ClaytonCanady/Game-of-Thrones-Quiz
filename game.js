@@ -78,7 +78,7 @@ const myQuestions = [
 	(question6 = {
 		text: 'What substance is dragon glass mande of?',
 		optionA: 'Dragons Scales',
-		optionB: 'Special metal smelted by the children of the forest',
+		optionB: 'Special metal smelted by the Children of the Forest',
 		optionC: 'Obsidian',
 		optionD: 'Onyx',
 		correct: 2,
@@ -123,10 +123,10 @@ const myQuestions = [
 	}),
 	(question11 = {
 		text: 'What color is the sap of a Weirwood tree?',
-		optionA: 'black',
-		optionB: 'orange',
-		optionC: 'red',
-		optionD: 'white',
+		optionA: 'Black',
+		optionB: 'Orange',
+		optionC: 'Red',
+		optionD: 'White',
 		correct: 2,
 		correction: 'The sap of Weirwood trees is blood red',
 	}),
@@ -156,7 +156,7 @@ const myQuestions = [
 		optionC: 'A group of pick pockets in the capital.',
 		optionD: 'A secret group of all female assassins.',
 		correct: 1,
-		correction: "The Bastards Girls are Ramsay Bolton's hound pack.",
+		correction: "The Bastard\'s Girls are Ramsay Bolton's hound pack.",
 	}),
 	(question15 = {
 		text: 'Why were the White Walkers originally created?',
@@ -166,7 +166,7 @@ const myQuestions = [
 		optionD: 'To guard secrets treasures stashed in the far north.',
 		correct: 1,
 		correction:
-			'The White Walkers were created to protect the Children of the Forest from the First Men..',
+			'The White Walkers were created to protect the Children of the Forest from the First Men.',
 	}),
 ];
 currentQuestion.innerText = myQuestions[questionNumber].text;
