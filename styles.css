@@ -8,7 +8,7 @@ body {
 	padding: 20px;
 }
 
-img{
+img {
 	height: 12vh;
 }
 ul {
@@ -31,7 +31,6 @@ button {
 }
 button:hover {
 	background-color: transparent;
-	
 }
 .reset-button {
 	height: fit-content;
@@ -60,8 +59,8 @@ a {
 	color: white;
 }
 .start-screen {
-margin-left: 3vw;
-margin-right: 3vw;
+	margin-left: 7vw;
+	margin-right: 7vw;
 }
 .start-screen-img {
 	height: 25vh;
