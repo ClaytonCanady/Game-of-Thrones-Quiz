@@ -10,7 +10,7 @@ This repo is designed to be a quiz game based on The Game of Thrones series.
 
 - self-scoring
 - includes reset button
-- currently 10 questions, more to come
+- 15 questions
 - 4 descriptive quotes from the show that appear based upon the percentage of correct answers
 - displays correct answers for any missed questions at the end
 - has a local storage based high score feature
